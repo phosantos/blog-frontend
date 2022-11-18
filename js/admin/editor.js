@@ -1,3 +1,0 @@
-function newPost() {}
-
-function editPost() {}

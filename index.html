@@ -1,52 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog</title>
+  <title>mb | Home</title>
   <link rel="stylesheet" href="./css/styles.css">
+  <script defer type="module" src="./js/blog/main.js"></script>
 </head>
 
 <body>
   <header class="header">
-    <div class="container">
-      <!-- <div class="profile-pic"></div> -->
-
-      <h1><a href="/">tech.blog</a></h1>
-
-      <nav>
-        <ul class="menu">
-          <li><a href="">Sobre</a></li>
-          <li><a href="">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
+    <h1><a href="/">minimal.blog</a></h1>
   </header>
-  <div class="container posts">
-    <article class="post">
-      <span class="author">Jon Arias</span>
-      <a href="/post/?id=1">
-        <h1 class="title">Lorem ipsum dolor sit amet consectetur, adipisicing elit?</h1>
-        <h2 class="subheading">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </h2>
-      </a>
-      <span class=" date">12 Nov</span>
-    </article>
-    <article class="post">
-      <span class="author">Jon Arias</span>
-      <a href="/post/?id=1">
-        <h1 class="title">Lorem ipsum dolor sit amet consectetur, adipisicing elit?</h1>
-        <h2 class="subheading">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </h2>
-      </a>
-      <span class=" date">12 Nov</span>
-    </article>
-  </div>
-  <footer></footer>
+  <main class="container">
+
+    <section class="intro">
+      <h1>Bem vindo ao meu blog! 👋</h1>
+      <p>Me chamo <strong>Jon Arias</strong> e aqui escrevo sobre tudo.</p>
+      <div class="socials">
+        <a href="" class="twitter"></a>
+        <a href="" class="linkedin"></a>
+        <a href="" class="github"></a>
+        <a href="" class="email"></a>
+      </div>
+    </section>
+
+    <section class="posts">
+    </section>
+
+  </main>
+  <footer>
+    <form action="" class="container newsletter">
+      <label>🔔 Se inscreva na newsletter para receber as novidades por email!</label>
+      <div>
+        <input type="text" id="name" placeholder="Nome">
+        <input type="email" id="email" placeholder="Email">
+        <button class="btn">SE INSCREVER</button>
+      </div>
+    </form>
+    <div class="copy">2022 - <strong>minimal.blog</strong> by Jon Arias</div>
+  </footer>
 </body>
 
 </html>
