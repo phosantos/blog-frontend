@@ -214,7 +214,7 @@ footer {
 .newsletter input {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
-  padding: 1rem;
+  padding: .8rem 1rem;
   border: 1px solid #666;
   border-radius: 1rem;
   background-color: #F5F5F5;
@@ -309,9 +309,26 @@ footer strong {
   height: 20px;
 }
 
-
 .post .delete:hover {
   color: red;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.profile > div {
+  display: flex;
+  align-items: center;
+}
+
+.profile img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }
 
 /* admin - editor */
@@ -440,4 +457,39 @@ footer strong {
 
 .link {
   background-image: url("../assets/link.svg");
+}
+
+/* login */
+
+.loginForm {
+  display: grid;
+  max-width: 500px;
+  padding: 4rem 20px;
+  margin: 0 auto;
+}
+
+.loginForm label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: .5rem;
+}
+
+.loginForm input {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  padding: .8rem 1rem;
+  border: 1px solid #666;
+  border-radius: 1rem;
+  background-color: #F5F5F5;
+  margin-bottom: 1rem;
+}
+
+.loginForm input:focus {
+  outline: none;
+  border: 1px solid #191919;
+}
+
+.loginForm .btn {
+  margin-bottom: .5rem;
+  margin: 0 0 .5rem auto;
 }

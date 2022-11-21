@@ -1,3 +1,6 @@
+import { getPosts } from '../../etc/api.js';
+import formatDate from '../../etc/formatDate.js';
+
 function createPostElement(id, title, subheading, date) {
   const article = document.createElement('article');
   article.classList.add('post');
@@ -10,11 +13,19 @@ async function getAllPosts() {
   document.querySelector('title').innerText = 'mb | Home';
   const postsArea = document.querySelector('.posts');
 
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-  const data = await response.json();
+  let posts = [];
+  const { url } = getPosts();
+  try {
+    const response = await fetch(url);
+    posts = await response.json();
+  } catch (error) {
+    console.log(error);
+  }
 
-  data.forEach(({ id, title, body }) =>
-    postsArea.appendChild(createPostElement(id, title, body, '18 Nov')),
+  posts.forEach(({ id, title, subheading, created_at }) =>
+    postsArea.appendChild(
+      createPostElement(id, title, subheading, formatDate(created_at)),
+    ),
   );
 }
 

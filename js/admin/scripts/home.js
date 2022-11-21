@@ -1,3 +1,6 @@
+import { getPosts, deletePost } from '../../etc/api.js';
+import formatDate from '../../etc/formatDate.js';
+
 function createPostElement(id, title, subheading, date) {
   const article = document.createElement('article');
   article.classList.add('post');
@@ -20,11 +23,14 @@ function createPostElement(id, title, subheading, date) {
 
 async function getAllPosts() {
   const postsArea = document.querySelector('.posts');
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const { url } = getPosts();
+  const response = await fetch(url);
   const data = await response.json();
 
-  data.forEach(({ id, title, body }) =>
-    postsArea.appendChild(createPostElement(id, title, body, '18 Nov')),
+  data.forEach(({ id, title, subheading, created_at }) =>
+    postsArea.appendChild(
+      createPostElement(id, title, subheading, formatDate(created_at)),
+    ),
   );
 
   const deleteBtns = document.querySelectorAll('.delete');
@@ -32,7 +38,11 @@ async function getAllPosts() {
   async function handleDelete(e) {
     e.preventDefault();
     const { postid } = this.dataset;
-    console.log('delete post id = ' + postid);
+    const { url, options } = deletePost();
+    const response = await fetch(url, options);
+    const { auth } = await response.json();
+    if (auth === false) location.href = '/admin/login.html';
+    location.reload();
   }
 
   deleteBtns.forEach((btn) => btn.addEventListener('click', handleDelete));
