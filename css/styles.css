@@ -51,6 +51,12 @@ body {
   color: black;
 }
 
+@media (max-width: 450px) {
+  .header h1 {
+    font-size: 1.3rem;
+  }
+}
+
 .header h1 a {
   color: black;
 }
@@ -86,6 +92,16 @@ body {
   height: 30px;
   background-position: center;
   background-size: cover;
+}
+
+@media (max-width: 450px) {
+  .intro h1 {
+    font-size: 1.3rem;
+  }
+  .intro .twitter,.intro .email,.intro .linkedin,.intro .github {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 .twitter {
@@ -167,6 +183,16 @@ body {
   text-decoration: underline;
 }
 
+@media (max-width: 450px) {
+  .post .title {
+    font-size: 1.1rem;
+  }
+
+  .post .subheading {
+    font-size: .9rem;
+  }
+}
+
 .btn {
   color: white;
   padding: .6rem 1.2rem;
@@ -200,6 +226,7 @@ footer {
   padding: 2rem 20px;
 }
 
+
 .newsletter label {
   font-family: 'Poppins', sans-serif;
   font-size: 1.3rem;
@@ -209,6 +236,7 @@ footer {
   display: grid;
   width: 100%;
   gap: .5rem;
+  position: relative;
 }
 
 .newsletter input {
@@ -230,6 +258,54 @@ footer {
   margin: 0 0 .5rem auto;
 }
 
+.newsletter .error {
+  background-color: #FFEBED;
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: red;
+  text-align: center;
+  margin-top: .5rem;
+  display: none;
+  position: absolute;
+  top: -50px;
+  display: none;
+}
+
+.newsletter .error.active {
+  display: inline;
+}
+
+@media (max-width: 750px){
+  .newsletter {
+    display: grid;
+    max-width: 400px;
+  }
+
+  .newsletter .btn {
+    margin-bottom: .5rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px){
+  .newsletter {
+    padding-top: 0;
+    padding-bottom: 1rem;
+  }
+
+  .newsletter label {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .newsletter input {
+    font-size: 1rem;
+    padding: .5rem 1rem;
+  }
+}
+
 footer strong {
   font-family: 'Poppins', sans-serif;
 }
@@ -241,6 +317,7 @@ footer strong {
   justify-content: space-between;
   align-items: center;
 }
+
 
 .logout {
   font-size: .875rem;
@@ -331,6 +408,39 @@ footer strong {
   margin-right: 5px;
 }
 
+@media (max-width: 600px) {
+  .header .container {
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .profile {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .posts-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .post .delete {
+    font-size: .875rem;
+  }
+
+  .post .delete svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .admin.posts .post h1::before {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
 /* admin - editor */
 
 .editor {
@@ -393,11 +503,18 @@ footer strong {
   padding-bottom: 4rem;
 }
 
+.single-post header > div {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  opacity: .8;
+}
+
 .single-post h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 2rem;
   color: black;
+  margin-top: .5rem;
 }
 
 .single-post h2 {
@@ -463,7 +580,7 @@ footer strong {
 
 .loginForm {
   display: grid;
-  max-width: 500px;
+  max-width: 400px;
   padding: 4rem 20px;
   margin: 0 auto;
 }
@@ -491,5 +608,21 @@ footer strong {
 
 .loginForm .btn {
   margin-bottom: .5rem;
-  margin: 0 0 .5rem auto;
+  /* margin: 0 0 .5rem auto; */
+}
+
+.loginForm .error {
+  background-color: #FFEBED;
+  padding: .8rem 1rem;
+  border-radius: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: red;
+  text-align: center;
+  margin-top: .5rem;
+  display: none;
+}
+
+.loginForm .error.active {
+  display: block;
 }

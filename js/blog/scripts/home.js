@@ -10,7 +10,7 @@ function createPostElement(id, title, subheading, date) {
 }
 
 async function getAllPosts() {
-  document.querySelector('title').innerText = 'mb | Home';
+  document.querySelector('title').innerText = 'Blog | Home';
   const postsArea = document.querySelector('.posts');
 
   let posts = [];

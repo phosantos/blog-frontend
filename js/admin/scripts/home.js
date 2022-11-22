@@ -38,7 +38,7 @@ async function getAllPosts() {
   async function handleDelete(e) {
     e.preventDefault();
     const { postid } = this.dataset;
-    const { url, options } = deletePost();
+    const { url, options } = deletePost(postid);
     const response = await fetch(url, options);
     const { auth } = await response.json();
     if (auth === false) location.href = '/admin/login.html';

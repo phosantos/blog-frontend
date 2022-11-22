@@ -8,24 +8,32 @@ function newsletter() {
     e.preventDefault();
     const name = form.name.value;
     const email = form.email.value;
+    const error = form.querySelector('.error');
 
     //validacao
+    if (!name.trim() || !error.trim()) {
+      error.innerText = 'Preencha todos os campos!';
+      error.classList.add('active');
+    } else {
+      const { url, options } = postNewsletter({ name, email });
+      try {
+        const response = await fetch(url, options);
+        if (response.ok) {
+          form.name.value = '';
+          form.email.value = '';
 
-    const { url, options } = postNewsletter({ name, email });
+          btn.innerText = 'INSCRITO!';
 
-    try {
-      const response = await fetch(url, options);
-
-      if (response.ok) {
-        form.name.value = '';
-        form.email.value = '';
-
-        //mensagem falando que deu certo
-      } else {
-        //mensagem falando que o email já foi cadastrado
+          setTimeout(() => {
+            btn.innerText = 'SE INSCREVER';
+          }, 3000);
+        } else {
+          error.innerText = 'Email já cadastrado!';
+          error.classList.add('active');
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
   }
 

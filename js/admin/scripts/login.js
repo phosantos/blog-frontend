@@ -18,7 +18,8 @@ async function login() {
         localStorage.setItem('token', token);
         location.href = '/admin/';
       } else {
-        console.log('Usuário e/ ou senha errados');
+        const error = form.querySelector('.error');
+        error.classList.add('active');
       }
     } catch (error) {
       console.log(error);

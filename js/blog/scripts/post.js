@@ -1,8 +1,10 @@
 import { getPost } from '../../etc/api.js';
+import formatDate from '../../etc/formatDate.js';
 
 async function getSinglePost() {
   const id = new URLSearchParams(location.search).get('id');
   const postArea = document.querySelector('.single-post');
+  const date = postArea.querySelector('.date');
   const title = postArea.querySelector('h1');
   const subheading = postArea.querySelector('h2');
   const body = postArea.querySelector('.content');
@@ -21,7 +23,8 @@ async function getSinglePost() {
     console.log(error);
   }
 
-  document.querySelector('title').innerText = 'mb | ' + post.title;
+  document.querySelector('title').innerText = 'Blog | ' + post.title;
+  date.innerText = formatDate(post.created_at);
   title.innerText = post.title;
   subheading.innerText = post.subheading;
   body.innerHTML = post.body;
