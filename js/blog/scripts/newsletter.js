@@ -9,9 +9,10 @@ function newsletter() {
     const name = form.name.value;
     const email = form.email.value;
     const error = form.querySelector('.error');
+    error.classList.remove('active');
 
     //validacao
-    if (!name.trim() || !error.trim()) {
+    if (!name.trim() || !email.trim()) {
       error.innerText = 'Preencha todos os campos!';
       error.classList.add('active');
     } else {
